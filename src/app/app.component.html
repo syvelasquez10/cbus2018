@@ -29,6 +29,7 @@
                   <th scope="col"></th>
                   <th scope="col">Tipo A</th>
                   <th scope="col">Tipo B</th>
+                  <th scope="col">Tipo B</th>
                 </tr>
               </thead>
               <tbody>
@@ -38,16 +39,19 @@
                     <input type="checkbox" [checked]="artesTipoA" (change)="artesTipoA = !artesTipoA"/>
                   </td>
                   <td><input type="checkbox" [checked]="artesTipoB"  (change)="artesTipoB = !artesTipoB"/></td>
+                  <td><input type="checkbox" [checked]="artesTipoB2"  (change)="artesTipoB2 = !artesTipoB2"/></td>
                 </tr>
                 <tr>
                   <th scope="row">Ciencias Sociales</th>
                   <td><input type="checkbox" [checked]="socialesTipoA"  (change)="socialesTipoA = !socialesTipoA"/></td>
                   <td><input type="checkbox" [checked]="socialesTipoB"  (change)="socialesTipoB = !socialesTipoB"/></td>
+                  <td><input type="checkbox" [checked]="socialesTipoB2"  (change)="socialesTipoB2 = !socialesTipoB2"/></td>
                 </tr>
                 <tr>
                   <th scope="row">Ciencia y Tecnología</th>
                   <td><input type="checkbox" [checked]="tecTipoA" (change)="tecTipoA = !tecTipoA"/></td>
                   <td><input type="checkbox" [checked]="tecTipoB" (change)="tecTipoB = !tecTipoB"/></td>
+                  <td><input type="checkbox" [checked]="tecTipoB2" (change)="tecTipoB2 = !tecTipoB2"/></td>
                 </tr>
               </tbody>
             </table>
@@ -63,7 +67,7 @@
         <div class="card-body"  style="text-align:center">
           <br>
           <br>
-          <ul class="list-group" *ngIf="this.getCreditosActuales() > 12 || this.artesTipoA || this.artesTipoB || this.socialesTipoA || this.socialesTipoB || this.tecTipoA || this.tecTipoB">
+          <ul class="list-group" *ngIf="this.getCreditosActuales() > 12 || this.artesTipoA || this.artesTipoB || this.artesTipoB2 || this.socialesTipoA || this.socialesTipoB || this.socialesTipoB2 || this.tecTipoA || this.tecTipoB || this.tecTipoB2">
             <li *ngIf="this.getCreditosActuales() <= 12" class="list-group-item d-flex justify-content-between align-items-center">
               Curso Común de Colombia
               <span class="badge badge-primary badge-pill">2 créditos</span>
@@ -73,7 +77,7 @@
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
             <li *ngIf="cursosRestantes() != 0" class="list-group-item d-flex justify-content-between align-items-center">
-              Cantidad de cursos pendientes: {{cursosRestantes()}}
+              {{cursosRestantes()}} de {{areaFaltante()}}
               <span class="badge badge-primary badge-pill">{{cursosRestantes() * 2}} créditos</span>
             </li>
           </ul>
@@ -92,7 +96,7 @@
         <br>
         Es un desarrollo de estudiantes para apoyar a la comunidad a entender mejor el cambio que va a ocurrir desde el próximo semestre.
         <br>
-        Por lo tanto, si tiene dudas, lo mejor es que se acerque al coordinador de su departamento para resolverlas.
+        Por lo tanto, si tiene dudas, lo mejor es que se acerque al coordinador de su departamento para resolverlas. <strong>O escribe a cbu@uniandes.edu.co.</strong>
       </p>
     </div>
   </div>
