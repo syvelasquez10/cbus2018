@@ -96,26 +96,36 @@ export class AppComponent {
   }
 
   areaFaltante() {
-    if (this.getCreditosActuales() <= 6) {
-      return 'cualquier área';
+    if (this.getCreditosActuales() <= 3) {
+      if (this.artesCompleto()) {
+        return ' cursos; 1 de Pensamiento Científico y 3 de cualquier área.';
+       } else {
+        return ' cursos; 1 de Culturas, Artes y Humanidades, 1 de Pensamiento Científico y 2 de cualquier área.';
+       }
+    } if (this.getCreditosActuales() === 6) {
+      if (this.artesCompleto()) {
+          return ' cursos; 1 de Pensamiento Científico y 1 de cualquier área.';
+      } else if (this.socialesCompleto() || this.tecCompleto()) {
+        return ' cursos; 1 de Culturas, Artes y Humanidades y 1 de cualquier área.';
+      }
     } else if (this.getCreditosActuales() === 9) {
       if (this.unoPorTipo()) {
-        return 'cualquier área';
+        return ' curso de cualquier área';
       } else {
        if (this.artesCompleto()) {
-        return 'Pensamiento Científico';
+        return ' curso de Pensamiento Científico';
        } else {
-        return 'Culturas, Artes y Humanidades';
+        return ' curso de Culturas, Artes y Humanidades';
        }
       }
     } else if (this.getCreditosActuales() >= 12) {
       if (this.unoPorTipo()) {
-        return 'cualquier área';
+        return ' curso de cualquier área';
       } else {
        if (this.artesCompleto()) {
-        return 'Pensamiento Científico';
+        return ' curso de Pensamiento Científico';
        } else {
-        return 'Culturas, Artes y Humanidades';
+        return ' curso de Culturas, Artes y Humanidades';
        }
       }
     }
