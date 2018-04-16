@@ -11,19 +11,17 @@
   </label>
   <br>
   <br> 
-  <img width="500" alt="Angular Logo" src="../assets/banner.jpg">
 </div>
-<br>
 <div class="container">
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-5">
-      <div class="card">
+      <div class="card"  style="background-color:rgba(0, 0, 0, 0.5);">
         <div class="card-header" style="text-align:center">
           <h3>¿Cuales CBUs has visto?</h3>
         </div>
         <div class="card-body"  style="text-align:center">
-          <table class="table table-striped">
+          <table class="table table-striped" style="background-color:rgba(0, 0, 0, 0.5);">
               <thead>
                 <tr>
                   <th scope="col"></th>
@@ -60,23 +58,23 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="card">
+      <div class="card" style="background-color:rgba(0, 0, 0, 0.5);">
         <div class="card-header" style="text-align:center">
           <h3>¿Cuales CBUs debo ver?</h3>
         </div>
         <div class="card-body"  style="text-align:center">
           <br>
           <br>
-          <ul class="list-group" *ngIf="this.getCreditosActuales() > 12 || this.artesTipoA || this.artesTipoB || this.artesTipoB2 || this.socialesTipoA || this.socialesTipoB || this.socialesTipoB2 || this.tecTipoA || this.tecTipoB || this.tecTipoB2">
-            <li *ngIf="this.getCreditosActuales() <= 12" class="list-group-item d-flex justify-content-between align-items-center">
+          <ul style="background-color:rgba(0, 0, 0, 0.5);" class="list-group" *ngIf="this.getCreditosActuales() > 12 || this.artesTipoA || this.artesTipoB || this.artesTipoB2 || this.socialesTipoA || this.socialesTipoB || this.socialesTipoB2 || this.tecTipoA || this.tecTipoB || this.tecTipoB2">
+            <li *ngIf="this.getCreditosActuales() <= 12" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
               Curso Común de Colombia
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
-            <li *ngIf="getCreditosActuales() <= 9" class="list-group-item d-flex justify-content-between align-items-center">
+            <li *ngIf="getCreditosActuales() <= 9" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
               1 Curso en el Área de Colombia
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
-            <li *ngIf="cursosRestantes() != 0" class="list-group-item d-flex justify-content-between align-items-center">
+            <li *ngIf="cursosRestantes() != 0" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
               {{cursosRestantes()}} {{areaFaltante()}}
               <span class="badge badge-primary badge-pill">{{cursosRestantes() * 2}} créditos</span>
             </li>
