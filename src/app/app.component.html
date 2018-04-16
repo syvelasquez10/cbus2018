@@ -1,20 +1,99 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    ¿Tienes dudas sobre que CBUs debes ver?
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <br>
+  <label>
+    Está página te permite conocer rápidamente que cursos te faltan por tomar dependiendo de los que ya has tomado.
+    <br>
+    Completa el cuadro de CBUs que ya has visto, que se encuentra más abajo, para saber cuales CBUs te hacen falta.
+  </label>
+  <br>
+  <br> 
+  <img width="500" alt="Angular Logo" src="../assets/banner.jpg">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header" style="text-align:center">
+          <h3>¿Cuales CBUs has visto?</h3>
+        </div>
+        <div class="card-body"  style="text-align:center">
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Tipo A</th>
+                  <th scope="col">Tipo B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Artes y Humanidades</th>
+                  <td>
+                    <input type="checkbox" [checked]="artesTipoA" (change)="artesTipoA = !artesTipoA"/>
+                  </td>
+                  <td><input type="checkbox" [checked]="artesTipoB"  (change)="artesTipoB = !artesTipoB"/></td>
+                </tr>
+                <tr>
+                  <th scope="row">Ciencias Sociales</th>
+                  <td><input type="checkbox" [checked]="socialesTipoA"  (change)="socialesTipoA = !socialesTipoA"/></td>
+                  <td><input type="checkbox" [checked]="socialesTipoB"  (change)="socialesTipoB = !socialesTipoB"/></td>
+                </tr>
+                <tr>
+                  <th scope="row">Cienia y Tecnología</th>
+                  <td><input type="checkbox" [checked]="tecTipoA" (change)="tecTipoA = !tecTipoA"/></td>
+                  <td><input type="checkbox" [checked]="tecTipoB" (change)="tecTipoB = !tecTipoB"/></td>
+                </tr>
+              </tbody>
+            </table>
+            Total de creditos actuales = {{getCreditosActuales()}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header" style="text-align:center">
+          <h3>¿Cuales CBUs debo ver?</h3>
+        </div>
+        <div class="card-body"  style="text-align:center">
+          <br>
+          <br>
+          <ul class="list-group" *ngIf="this.getCreditosActuales() > 12 || this.artesTipoA || this.artesTipoB || this.socialesTipoA || this.socialesTipoB || this.tecTipoA || this.tecTipoB">
+            <li *ngIf="this.getCreditosActuales() <= 12" class="list-group-item d-flex justify-content-between align-items-center">
+              Curso Común de Colombia
+              <span class="badge badge-primary badge-pill">2 créditos</span>
+            </li>
+            <li *ngIf="getCreditosActuales() <= 9" class="list-group-item d-flex justify-content-between align-items-center">
+              1 Curso en el Área de Colombia
+              <span class="badge badge-primary badge-pill">2 créditos</span>
+            </li>
+            <li *ngIf="cursosRestantes() != 0" class="list-group-item d-flex justify-content-between align-items-center">
+              Cantidad de cursos pendientes: {{cursosRestantes()}}
+              <span class="badge badge-primary badge-pill">{{cursosRestantes() * 2}} créditos</span>
+            </li>
+          </ul>
+          <br>
+          Total de creditos faltantes = {{getCreditosFaltantes()}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <p style="font-size: 10px; text-align: center;">
+        Está página no fue creada por la Universidad de los Andes, por lo tanto no es una fuente oficial para definir que CBUs le falta por ver.
+        <br>
+        Es un desarrollo de estudiantes para apoyar a la comunidad a entender mejor el cambio que va a ocurrir desde el próximo semestre.
+        <br>
+        Por lo tanto, si tiene dudas, lo mejor es que se acerque al coordinador de su departamento para resolverlas.
+      </p>
+    </div>
+  </div>
+</div>
