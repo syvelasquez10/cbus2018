@@ -96,13 +96,15 @@ export class AppComponent {
   }
 
   areaFaltante() {
-    if (this.getCreditosActuales() <= 3) {
+    if (this.getCreditosActuales() === 0) {
+      return ' cursos; 1 de Pensamiento Científico, 1 de Culturas, Artes y Humanidades';
+    } else if (this.getCreditosActuales() <= 3) {
       if (this.artesCompleto()) {
         return ' cursos; 2 de Pensamiento Científico y 2 de cualquier área.';
        } else {
         return ' cursos; 1 de Culturas, Artes y Humanidades, 1 de Pensamiento Científico y 2 de cualquier área.';
        }
-    } if (this.getCreditosActuales() === 6) {
+    } else if (this.getCreditosActuales() === 6) {
       // Necesita revisión
       if (this.artesCompleto()) {
           if (this.socialesCompleto() || this.tecCompleto()) {
@@ -146,7 +148,9 @@ export class AppComponent {
   }
 
   cursosRestantes() {
-    if (this.getCreditosActuales() <= 6) {
+    if (this.getCreditosActuales() === 0) {
+      return 2;
+    } else if (this.getCreditosActuales() <= 6) {
       return Math.floor(4 / (this.getCreditosActuales() / 3));
     } else if (this.getCreditosActuales() <= 9) {
       // dudas
@@ -166,6 +170,19 @@ export class AppComponent {
     } else {
       return 0;
     }
+  }
+
+  limpiar () {
+    this.artesTipoA = false;
+    this.artesTipoB = false;
+    this.artesTipoB2 = false;
+    this.socialesTipoA = false;
+    this.socialesTipoB = false;
+    this.socialesTipoB2 = false;
+    this.tecTipoA = false;
+    this.tecTipoB = false;
+    this.tecTipoB2 = false;
+    this.contador = 0;
   }
 
 }
