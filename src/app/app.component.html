@@ -35,7 +35,7 @@
                 <th scope="col"></th>
                 <th scope="col">Tipo A</th>
                 <th scope="col">Tipo B</th>
-                <th scope="col">Tipo B</th>
+                <th scope="col">Tipo A o B</th>
               </tr>
             </thead>
             <tbody>
@@ -94,8 +94,8 @@
           </ul>
           <br>
           <br>
-          <div *ngIf="getCreditosActuales() === 0"> Total de créditos faltantes = 14</div>
-          <div *ngIf="getCreditosActuales() != 0">Total de créditos faltantes = {{getCreditosFaltantes()}}</div>
+          <div *ngIf="getCreditosActuales() === 0" style="text-align:center">  Total de créditos faltantes = 14</div>
+          <div *ngIf="getCreditosActuales() != 0" style="text-align:center">Total de créditos faltantes = {{getCreditosFaltantes()}}</div>
      
         </div>
       </div>
