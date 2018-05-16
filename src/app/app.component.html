@@ -1,27 +1,32 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    ¿Tienes dudas sobre qué cursos del CBU debes ver?
-  </h1>
-  <br>
-  <label>
-    Esta página te permite conocer rápidamente qué cursos te faltan por tomar dependiendo de los que ya has tomado.
-    <br>
-    Completa el cuadro de los cursos del CBU que ya has visto, que se encuentra más abajo, para saber cuáles cursos del CBU te hacen falta.
-  </label>
-  <br>
-  <br> 
-  <label>
-    Si no sabes de qué áreas son los cursos del CBU que ya has tomado, puedes ir a <a href="https://cbu.uniandes.edu.co/cbu_hist.php">https://cbu.uniandes.edu.co/cbu_hist.php.</a>
-  </label>
-</div>
+<br>
+<br>
 <div class="container">
+    <div style="text-align:center">
+        <h1>
+          ¿Tienes dudas sobre qué cursos del Ciclo Básico Uniandino (CBU) debes ver?
+        </h1>
+        <br>
+        <label>
+          Esta página te permite conocer rápidamente qué cursos te faltan por tomar dependiendo de los que ya has tomado.
+          <br>
+          Completa el cuadro de los cursos del CBU que ya has visto, que se encuentra más abajo, para saber cuáles cursos del CBU te hacen falta.
+          <br>
+          <br>
+          Recuerda que la reforma del Ciclo Básico Uniandino no implica que tengas que ver más cursos. El número máximo de créditos que tomaras nunca sera mayor a 18 y el mínimo 14. Ten en cuenta lo .
+        </label>
+        <br>
+        <br> 
+        <label>
+          Si no sabes de qué áreas son los cursos del CBU que ya has tomado, puedes ir a <a href="https://cbu.uniandes.edu.co/cbu_hist.php" style="color: white;" target="_blank"><u>https://cbu.uniandes.edu.co/cbu_hist</u></a>
+        </label>
+      </div>
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-5">
       <div class="card"  style="background-color:rgba(0, 0, 0, 0.5);">
         <div class="card-header" style="text-align:center">
-          <h3>¿Cuáles cursos del CBU has visto?</h3>
+          <h3>¿Cuáles cursos del CBU has visto?*</h3>
         </div>
         <div class="card-body"  style="text-align:center">
           <table class="table table-striped" style="background-color:rgba(0, 0, 0, 0.5);">
@@ -64,13 +69,11 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="card" style="background-color:rgba(0, 0, 0, 0.5);">
+      <div class="card" style="background-color:rgba(0, 0, 0, 0.5); text-align: left;">
         <div class="card-header" style="text-align:center">
-          <h3>¿Cuáles cursos del CBU debo ver, a partir de 2018-20?</h3>
+          <h3>¿Cuáles cursos del CBU debo ver, a partir de 2018-20?*</h3>
         </div>
-        <div class="card-body"  style="text-align:center">
-          <br>
-          <br>
+        <div class="card-body">
           <ul style="background-color:rgba(0, 0, 0, 0.5);" class="list-group" >
             <li *ngIf="this.getCreditosActuales() <= 12" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
               Curso Común de Colombia
@@ -81,7 +84,7 @@
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
             <li *ngIf="cursosRestantes() != 0" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
-              {{cursosRestantes()}} {{areaFaltante()}}
+              <div style="padding-right: 50px;">{{cursosRestantes()}} {{areaFaltante()}}</div>
               <span class="badge badge-primary badge-pill">{{cursosRestantes() * 2}} créditos</span>
             </li>
             <li *ngIf="getCreditosActuales() === 0" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
@@ -90,8 +93,10 @@
             </li>
           </ul>
           <br>
+          <br>
           <div *ngIf="getCreditosActuales() === 0"> Total de créditos faltantes = 14</div>
           <div *ngIf="getCreditosActuales() != 0">Total de créditos faltantes = {{getCreditosFaltantes()}}</div>
+     
         </div>
       </div>
     </div>
@@ -99,13 +104,15 @@
   <br>
   <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <p style="font-size: 10px; text-align: center;">
-        Está página no fue creada por la Universidad de los Andes, por lo tanto no es una fuente oficial para definir que CBUs le falta por ver.
+    <div class="col-md-10" style="text-align: center;">
+      * Si tienes dudas sobre tu caso específico lo mejor es que escribas a cbu@uniandes.edu.co.
+      <br>
+      <p style="font-size: 10px;">
+        Está nos es una página oficial de la Universidad de los Andes, por lo tanto no es una fuente oficial para definir que cursos del CBU le falta por ver.
         <br>
         Es un desarrollo de estudiantes para apoyar a la comunidad a entender mejor el cambio que va a ocurrir desde el próximo semestre.
         <br>
-        Por lo tanto, si tiene dudas, lo mejor es que se acerque al coordinador de su departamento para resolverlas. <strong>O escribe a cbu@uniandes.edu.co.</strong>
+        Por lo tanto, si tienes dudas, lo mejor es que te acerques al coordinador de tu departamento para resolverlas. <strong>O escribe a cbu@uniandes.edu.co.</strong>
       </p>
     </div>
   </div>
