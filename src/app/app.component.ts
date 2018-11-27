@@ -59,6 +59,9 @@ export class AppComponent {
     } else if (this.getCreditosActuales() === 12) {
       return 2;
     } else {
+      if (this.areaFaltante()) {
+        return 2;
+      }
       return 0;
     }
   }
