@@ -75,12 +75,12 @@
         </div>
         <div class="card-body">
           <ul style="background-color:rgba(0, 0, 0, 0.5);" class="list-group" >
-            <li *ngIf="this.getCreditosActuales() <= 12" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
+            <li *ngIf="this.getCreditosActuales() <= 9" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
               Curso Común de Colombia
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
-            <li *ngIf="getCreditosActuales() <= 9" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
-              1 Curso en el Área de Colombia
+            <li *ngIf="getCreditosActuales() === 12 && !areaFaltante()" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">
+              1 Curso en cualquier área. (Culturas, Artes y Humanidades, Pensamiento Científico y Colombia)
               <span class="badge badge-primary badge-pill">2 créditos</span>
             </li>
             <li *ngIf="cursosRestantes() != 0" style="background-color:rgba(0, 0, 0, 0.5);" class="list-group-item d-flex justify-content-between align-items-center">

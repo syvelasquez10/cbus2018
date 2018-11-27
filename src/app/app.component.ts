@@ -136,7 +136,7 @@ export class AppComponent {
       }
     } else if (this.getCreditosActuales() >= 12) {
       if (this.unoPorTipo()) {
-        return ' curso de cualquier área.';
+        return false;
       } else {
        if (this.artesCompleto()) {
         return ' curso de Pensamiento Científico.';
