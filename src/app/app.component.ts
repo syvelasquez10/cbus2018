@@ -125,11 +125,10 @@ export class AppComponent {
         return ' curso de cualquier área.';
       } else {
        if (this.artesCompleto()) {
-        // dudas
         if (this.socialesCompleto() || this.tecCompleto()) {
-          return ' curso de Pensamiento Científico.';
+          return ' curso de Pensamiento Científico';
         } else {
-          return ' cursos de Pensamiento Científico.';
+          return ' cursos de Pensamiento Científico';
         }
        } else if (this.socialesCompleto() && this.tecCompleto()) {
         return ' curso de Culturas, Artes y Humanidades.';
